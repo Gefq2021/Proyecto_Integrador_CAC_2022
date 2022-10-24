@@ -13,13 +13,21 @@ Estos dos valores deben almacenarse como una lista de dos elementos (el nombre y
 num = 0
 alumnos = []
 
+# Funcion que comprueba si se ingreso un numero entero
+def es_numero(valor):
+    while not valor.isdecimal():
+        print('¡Error, solo números enteros!')
+        valor = input('Vuelva a ingresar el número: ')
+    return int(valor)
+
+
 while num != 3:
     alumno = []
     print('''Ingreser el número de la operación que desea realizar:
 1- Añadir un alumno a la listas.
 2- Ver la lista de alumnos.
 3- Salir.''')
-    num = int(input())
+    num = es_numero(input())
     match num:
         case 1:
             nombre = input("Ingrese el nombre: ")
