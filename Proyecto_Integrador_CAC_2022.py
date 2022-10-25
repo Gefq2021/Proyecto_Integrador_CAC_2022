@@ -13,6 +13,13 @@ Estos dos valores deben almacenarse como una lista de dos elementos (el nombre y
 
 alumnos = {}
 
+# Función que comprueba que se ingrese un valor
+def verificar(valor):
+    while valor == '':
+        print('¡Error...!')
+        valor = input('Ingrese un valor: ')
+    return valor
+
 # Funcion que comprueba si se ingreso un numero entero
 def es_numero(valor):
     while not valor.isdecimal():
@@ -30,14 +37,14 @@ while True:
     num = es_numero(input())
     match num:
         case 1:
-            nombre = input("Ingrese el nombre: ")
+            nombre = verificar(input("Ingrese el nombre: "))
             cant = es_numero(input("Ingrese la cantidad de materias cursos: "))
             alumnos.update({nombre: cant})
         case 2:
             for nombre, cursos in alumnos.items():
                 print(f"Nombre: {nombre}. Cantidad de Materias Inscriptas {cursos}")
         case 3:
-            alumno = input("Ingrese el Nombre del Alumno: ")
+            alumno = verificar(input("Ingrese el Nombre del Alumno: "))
             if alumno in alumnos:
                 print(f"Nombre: {alumno}. Cursos: {alumnos[alumno]}")
             else:
